@@ -1,0 +1,223 @@
+/*    초기화 코드    */
+*{ margin: 0; padding: 0;}
+img{ border: 0;}
+li{ list-style: none;}
+a{ text-decoration: none; color:#262626;}
+
+/* main_header */
+#main_header{
+    height: 50px; background-color: darkseagreen;
+    position: relative;    /* 자손 위치 지정 */
+    text-align: center;    /* text 가운데 정렬 */
+    line-height: 50px;    /* 줄간격 설정 */
+}
+#main_header h1{ color: white;}
+#main_header > a{
+    display: block;
+    height: 40px;
+    position: absolute;
+}
+
+/*메뉴 선택시 서브타이틀*/
+#menu_header{
+    height: 42px; background-color: lightgray;
+    position: relative;    /* 자손 위치 지정 */
+    text-align: center;    /* text 가운데 정렬 */
+    line-height: 42px;    /* 줄간격 설정 */
+}
+#menu_header h2{
+    color: black;
+    font-family: 'Noto Serif KR', serif;
+}
+
+
+/* login page -hj */
+.login_wrapper{
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:350px;
+    height:380px;
+    top:60%;
+    left:50%;
+    margin: -175px 0px 0px -190px;
+    background-color:white;
+}
+
+
+.login_form{
+    display:flex;
+    flex-direction: column;
+    width:280px;
+    margin-top:10px;
+}
+
+.login_text{
+    width:100%;
+    height:40px;
+    margin: 3px 0 3px 0 ;
+    padding: 0 10px 0 10px;
+    background-color:#FAFAFA;
+    border: 1px solid #DBDBDB;
+    border-radius: 3px;
+}
+
+.login_text:focus{
+    outline: 1px solid #a8a8a8;
+}
+
+.login_text::placeholder{
+    color:#8E8E8E;
+}
+
+.login_text::value{
+    color:#262626;
+}
+
+.login_btn{
+    width:100%;
+    height:33px;
+    margin: 10px 0 5px 0;
+    margin-left: 10px;
+    color:white;
+    background-color: darkseagreen	;
+    border-radius: 5px;
+    border-style: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login_bottom{
+    margin-top: 45px;
+    color:#01376A;
+    font-size: 13px;
+}
+.welcome_message{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color:#01376A;
+    font-size: 13px;
+}
+
+
+
+/* Navigation 꾸미기 */
+#footer {
+    position: fixed;
+    background-color: whitesmoke;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 6rem;
+}
+
+#footer_gnb{
+    overflow: hidden;
+    border-bottom: 1px solid lightslategray;
+    background-color: whitesmoke;
+
+}
+
+#footer_gnb > div{
+    float: left;            /* 메뉴 수평 정렬 */
+    width: 19%; height: 6rem;        /* 각 메뉴별 크기 지정 */
+    line-height: 30px;        /* 줄간격 지정함, 텍스트 수직 정렬*/
+    text-align: center;        /* 텍스트 가운데 정렬 */
+    /*color: red; font-weight: bold;    /* 텍스트 색상 및 굵기 지정 */
+    padding:5px 2px;
+
+
+
+}
+
+#footer_gnb > div>a{
+    text-align: center;        /* 텍스트 가운데 정렬 */
+    width: 20%; height: 6rem;        /* 각 메뉴별 크기 지정 */
+    color: #129633; font-weight: bold;    /* 텍스트 색상 및 굵기 지정 */
+    font-family: 'Noto Serif KR', serif;
+}
+
+.icon_div{
+    text-align: center;/*아이콘 가운데 정렬*/
+
+
+}
+
+/*footerbar icon*/
+
+
+.menu_icon{
+    max-width: 42px;
+    max-height: 42px;
+
+}
+/* Navigation 꾸미기 */
+
+#footer {
+    position: fixed;
+    background-color: whitesmoke;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 6rem;
+}
+
+#footer_gnb{
+    overflow: hidden;
+    border-bottom: 1px solid lightslategray;
+    background-color: whitesmoke;
+
+}
+
+#footer_gnb > div{
+    float: left;            /* 메뉴 수평 정렬 */
+    width: 19%; height: 6rem;        /* 각 메뉴별 크기 지정 */
+    line-height: 30px;        /* 줄간격 지정함, 텍스트 수직 정렬*/
+    text-align: center;        /* 텍스트 가운데 정렬 */
+    /*color: red; font-weight: bold;    /* 텍스트 색상 및 굵기 지정 */
+    padding:5px 2px;
+
+
+
+}
+
+#footer_gnb > div>a{
+    text-align: center;        /* 텍스트 가운데 정렬 */
+    width: 20%; height: 6rem;        /* 각 메뉴별 크기 지정 */
+    color: #129633; font-weight: bold;    /* 텍스트 색상 및 굵기 지정 */
+    font-family: 'Noto Serif KR', serif;
+}
+
+.icon_div{
+    text-align: center;/*아이콘 가운데 정렬*/
+
+
+}
+
+/*footerbar icon*/
+
+
+.menu_icon{
+    max-width: 42px;
+    max-height: 42px;
+
+}
+
+
+/*마이페이지 수정 다윤*/
+.my_div > input:focus {
+    outline: 2px solid darkseagreen;
+}
+
+.co_button > input[type=submit] {
+    height: 30px;
+    width: 40%;
+    line-height: 20px;
+    border-color: #8a8a8a;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 5px;
+    margin: auto;
+}
