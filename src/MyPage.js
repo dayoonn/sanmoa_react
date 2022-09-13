@@ -30,11 +30,17 @@ const MyPage=() => {
                     <div className="title"> 내 정보</div>
                     <div id="my_name">산모아</div>
                     <div id="my_mail">sanmoa@gmail.com</div>
+                    <br/>
+
                     <Link to="/MyPage_co">
-                    <button id="my_correction" >회원정보 수정 ▶</button>
+                        <button id="my_correction" >회원정보 수정 </button>
                     </Link>
 
+
+                    <button id="logout" >로그아웃 </button>
+
                 </div>
+
                 <br/>
                     <div className="my_div_mile">
                         <div className="title"> 마일리지</div>

@@ -8,9 +8,6 @@ img {
     border: 0;
 }
 
-li {
-    list-style: none;
-}
 
 a {
     text-decoration: none;
@@ -271,10 +268,12 @@ li{
     text-align: left;
 }
 
-#my_correction {
+#my_correction,#logout {
 
     font-size: 15px;
     padding: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
     background: white;
     border-radius: 10px;
     border-style: solid;

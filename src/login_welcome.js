@@ -7,8 +7,41 @@ import {Link} from 'react-router-dom';
 const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
 
 
-const login_welcome=() => {
-   return (
+const Login_welcome=() => {
+
+    const [Email, setEmail] = useState('');
+    const [Password, setPassword] = useState('');
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+
+        console.log({
+            Email,
+            Password,
+        });
+
+        axios.post('http://3.35.173.122:4000/api/auth/login', {
+            email : Email,
+            password : Password
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log("땡");
+                console.log(error);
+            });
+    };
+
+    const onChangeEmail = (e) => {
+        setEmail(e.target.value);
+    };
+    const onChangePassword = (e) => {
+        setPassword(e.target.value);
+    };
+
+
+    return (
         <div>
             <div>
                 <header id="main_header">
@@ -80,6 +113,6 @@ const login_welcome=() => {
     )
 }
 
-export default login_welcome;
+export default Login_welcome;
 
 

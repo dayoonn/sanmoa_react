@@ -17,7 +17,7 @@ const Emergency = () => {
         var list_id = "detail_" + id;
         var con = document.getElementById(list_id);
 
-        console.log(list_id);
+        //console.log(list_id);
 
         if (con.style.display === 'none') {
             con.style.display = 'block';
@@ -81,7 +81,27 @@ const Emergency = () => {
                         </div>
 
                         <div id="detail_more2" className="detail_more">
-                            여기는 pdf
+                            <h5> □ 다운로드 링크 </h5>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1YNNsto0F1KeGbWzEYfz6-HrfTk67lNMq/view?usp=sharing', '_blank')}>가야산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1jKE3S5ea1_x0IcV_61DzOYdQcudVj5JG/view?usp=sharing', '_blank')}>경주</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1xpqlFxeqqMjKr54_ZDQdVRNYA4o088l_/view?usp=sharing', '_blank')}>계룡산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1d3zMe9TNrY_zhyJUjCWemPu7N_qC21A2/view?usp=sharing', '_blank')}>내장산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1d3zMe9TNrY_zhyJUjCWemPu7N_qC21A2/view?usp=sharing', '_blank')}>다도해해상</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1vr51dKCZnunLI4DyLTLUEBfDsM6oL5zw/view?usp=sharing', '_blank')}>덕유산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1qFntCJxBPNh-sFBzRr2q_Lz6NXjufBla/view?usp=sharing', '_blank')}>무등산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/196uAf1tULPgT1niwqXlsOGb8TK2W5_aa/view?usp=sharing', '_blank')}>벽산반도</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/16VMfPhkRXGKmory3i89jyBvttbJJgKjp/view?usp=sharing', '_blank')}>북한산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1R0c0bmR1Hi8Ej2jmuc15KdVfmr2KNLIW/view?usp=sharing', '_blank')}>설악산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1-HjoW-vSZvJRTuJqYrRJSWscPcskznRl/view?usp=sharing', '_blank')}>소백산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1kk1X5ayL9xYIYrJ9wx0Fppn1lvlNH4Ef/view?usp=sharing', '_blank')}>속리산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1uIi5FbSGFlBUsQjTXCww-onvDX-dgE38/view?usp=sharing', '_blank')}>오대산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1jTHt_RPqlyob91Sm_XD8BTLD8Vw2Dk1U/view?usp=sharing', '_blank')}>월악산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1ayPJCH81GMP7hu8lbglVtw6Gr1qalDKV/view?usp=sharing', '_blank')}>월출산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/132LiXqOxbsZVM1OTgNuRYBKcC_X_1mHB/view?usp=sharing', '_blank')}>주왕산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1CaZ2eC9rcGPxJO3TPHTC5ZeA1HjWVZ8a/view?usp=sharing', '_blank')}>지리산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1WtYzbPsReiNlj47luY6IbMBImSXvWCWd/view?usp=sharing', '_blank')}>치악산</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1tNogwclrYjgZvYyHXtd4u9i7G1h9aSsD/view?usp=sharing', '_blank')}>태안해안</li>
+                            <li onClick={() => window.open('https://drive.google.com/file/d/1q-LNiq0Ap3Nq6DhImvAUFyCof6uRA_Em/view?usp=sharing', '_blank')}>한려해상</li>
                         </div>
                     </div>
 

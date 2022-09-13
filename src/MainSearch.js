@@ -3,49 +3,31 @@ import axios from 'axios';
 import './css/style.css';
 import {Link} from "react-router-dom";
 
+
 const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
 
 const MainSearch=() => {
+
+
     const [data, setData] = useState(null);
     const [latitude,setLatitude]=useState(0);
     const [longtitude,setLongtitude]=useState(0);
 
+/*
+    axios.get(`${API_END_POINT}/store/cafe`).then((Response)=>{
+        console.log(Response.data);
 
-
+       console.log (Response.data.elements);
+    }).catch((Error)=>{
+        console.log(Error);
+    })*/
 
     useEffect(() => {
-        function getLocation() {
-            if (navigator.geolocation) { // GPS를 지원하면
-                navigator.geolocation.getCurrentPosition(function(position) {
-                   // alert(position.coords.latitude + ' ' + position.coords.longitude);
-                    setLatitude(position.coords.latitude);
-                    setLongtitude(position.coords.longitude);
-                }, function(error) {
-                    console.error(error);
-                }, {
-                    enableHighAccuracy: false,
-                    maximumAge: 0,
-                    timeout: Infinity
-                });
-            } else {
-                alert('GPS를 지원하지 않습니다');
-            }
-        }
-        getLocation();
-
-
         axios.get(`${API_END_POINT}/store/cafe`).then((res) => {
-            setData(
-                res.data.elements[0].elements[1].elements[0].elements[0].elements[0]
-                    .elements[0].text
-            );
+            setData(res.data.response.body.items.item[0].addr1);
         });
     }, []);
     console.log(data);
-
-   // axios.post(`${API_END_POINT}/sanmoa/route`, {params:{name:'dayooneee' }});
-    //gps
-
 
     return (
         <div>
@@ -61,10 +43,13 @@ const MainSearch=() => {
 
             </div>
 
-            <h1>{data} mainsearch </h1>
-            {data && <textarea rows={10} value={data} readOnly={true} />}
-            <h1>위도 {longtitude}</h1>
-            <h1>경도 {latitude}</h1>
+            { <h1>{data}</h1> }
+            {data && (
+                <textarea rows={10} value={JSON.stringify(data)} readOnly={true} />
+            )}
+
+
+
 
 
             <div id="footer">

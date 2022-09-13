@@ -4,10 +4,49 @@ import './css/styleSign.css';
 import {Link} from 'react-router-dom';
 
 
+
+
 const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
 
 
-const login=() => {
+const Login=() => {
+
+    const [Email, setEmail] = useState('');
+    const [Password, setPassword] = useState('');
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+
+        console.log({
+            Email,
+            Password,
+        });
+
+        axios.post(`${API_END_POINT}/auth/login`, {
+            email : Email,
+            password : Password
+        })
+            .then(function (response) {
+                //로그인 성공시
+                console.log(response);
+                localStorage.setItem(('refresh-token',response.data['refresh-token']));
+
+                //document.location.href = '/mypage';
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert("회원정보가 없습니다.")
+            });
+    };
+
+    const onChangeEmail = (e) => {
+        setEmail(e.target.value);
+    };
+    const onChangePassword = (e) => {
+        setPassword(e.target.value);
+    };
+
+
      return (
         <div>
             <div>
@@ -23,12 +62,10 @@ const login=() => {
             <div id="container" className="main_container">
                 <article>
                     <div className="login_wrapper">
-                        <form className="login_form">
-                            <input id="LOGIN_ID" className="login_text" type="text" name="id"
-                                   placeholder="전화번호, 사용자 이름 또는 이메일"/>
-                                <input id="LOGIN_PW" className="login_text" type="password" name="id"
-                                       placeholder="비밀번호"/>
-                                    <button id="LOGIN_BTN" className="login_btn" type="button" disabled>로그인</button>
+                        <form onSubmit={onSubmit} className="login_form">
+                            <input id="LOGIN_ID" value={Email} required onChange={onChangeEmail} className="login_text" type="text" name="id" placeholder="전화번호, 사용자 이름 또는 이메일"/>
+                                <input id="LOGIN_PW" value={Password} required onChange={onChangePassword} className="login_text" type="password" name="id" placeholder="비밀번호"/>
+                                    <button id="LOGIN_BTN" className="login_btn" type="primary" htmlType="submit">로그인</button>
                         </form>
                         <Link to="/signup">
                         <a className="login_bottom" href="signup.html">회원이 아니신가요?</a>
@@ -83,6 +120,6 @@ const login=() => {
     )
 }
 
-export default login;
+export default Login;
 
 
