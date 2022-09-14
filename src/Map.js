@@ -36,8 +36,6 @@ const Map=() => {
         }
 
         getLocation();
-
-
 */
 
         var markers = [];
