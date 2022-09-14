@@ -59,7 +59,6 @@ const MyPage = () => {
           <div id="my_phone">연락처 : {phone}</div>
           <div id="my_contry">지역 : {contry}</div>
           <div id="my_content">소개: {content}</div>
-          <div id="my_mileage">마일리지 : {mileage}점</div>
 
           <br />
 
@@ -73,7 +72,7 @@ const MyPage = () => {
         <br />
         <div className="my_div_mile">
           <div className="title"> 마일리지</div>
-          <div id="mileage">1234P</div>
+          <div id="mileage">{mileage}P</div>
         </div>
 
         <br />
