@@ -11,6 +11,7 @@ import MyPage from "./MyPage";
 import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Signup from "./signup";
 import Login from "./login";
+import Nearby from "./Nearby"
 import Login_welcome from "./login_welcome";
 
 const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
@@ -40,7 +41,7 @@ const App = () => {
                     <Route path='/mainsearch' element={<MainSearch />} />
                     <Route path='/signup' element={<Signup />} />
                     <Route path='/login' element={<Login />} />
-
+                    <Route path='/Nearby' element={<Nearby />} />
                 </Routes>
             </Router>
         </>
