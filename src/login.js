@@ -23,16 +23,14 @@ const Login = () => {
       })
       .then(function (response) {
         // // //로그인 성공시
-        console.log(response.data.token);
         let token = response.data.token;
-        // localStorage.setItem(('refresh-token',response.data['refresh-token']));
-        //document.location.href = '/mypage';
-        if (response.status === 200) {
-          if (token) {
-            localStorage.setItem('login-token', token);
-          }
-          alert('로그인 되었습니다.');
+        if (token) {
+          localStorage.setItem('login-token', token);
+          window.location.href = '/mypage';
+        } else {
+          alert(response.data.error);
         }
+        console.log(response);
       })
       .catch(function (error) {
         console.log(error);

@@ -14,7 +14,6 @@ const MyPage = () => {
   const [content, setContent] = useState('');
   const [mileage, setMileage] = useState('');
 
-  console.log(localStorage.getItem('login-token'));
   useEffect(() => {
     axios
       .get(`${API_END_POINT}/mypage`, {
@@ -22,7 +21,6 @@ const MyPage = () => {
           authorization: localStorage.getItem('login-token'),
         },
       })
-
       .then(function (res) {
         setName(res.data.userInfo.name);
         setAge(res.data.userInfo.age);
@@ -37,6 +35,10 @@ const MyPage = () => {
         alert('회원정보가 없습니다.');
       });
   }, []);
+  const onClickHandler = () => {
+    localStorage.removeItem('login-token');
+    document.location.href('/login');
+  };
 
   return (
     <div>
@@ -66,7 +68,11 @@ const MyPage = () => {
             <button id="my_correction">회원정보 수정 </button>
           </Link>
 
-          <button id="logout">로그아웃 </button>
+          <Link to="/login">
+            <button id="my_correction" onClick={onClickHandler}>
+              로그아웃
+            </button>
+          </Link>
         </div>
 
         <br />
