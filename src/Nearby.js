@@ -14,7 +14,7 @@ const Nearby = () => {
       if (response.data) {
         setData(response.data.response.body.items.item); //가져온 모든 상품들을 배열에 저장한다.
       } else {
-        alert('상품리스트를 가져오는데 실패했습니다.');
+        alert('리스트를 가져오는데 실패했습니다.');
       }
     });
   }, []);
@@ -28,35 +28,23 @@ const Nearby = () => {
         </header>
       </div>
 
-      {/* <div className="restaurant">
-        <a href={data} target="_blank" rel="noreferrer">
-          <img src={data[0].firstimage}></img>
-          <div className="restaurant__data">
-            <h3 className="restaurant__title">{data[0].title}</h3>
-            <p className="restaurant__rating">
-              <span>주소</span> : {data[0].addr1}
-            </p>
-          </div>
-        </a>
-        <a href={data} target="_blank" rel="noreferrer">
-          <img src={data[0].firstimage}></img>
-          <div className="restaurant__data">
-            <h3 className="restaurant__title">{data[0].title}</h3>
-            <p className="restaurant__rating">
-              <span>주소</span> : {data[0].addr1}
-            </p>
-          </div>
-        </a>
-        <a href={data} target="_blank" rel="noreferrer">
-          <img src={data[0].firstimage}></img>
-          <div className="restaurant__data">
-            <h3 className="restaurant__title">{data[0].title}</h3>
-            <p className="restaurant__rating">
-              <span>주소</span> : {data[0].addr1}
-            </p>
-          </div>
-        </a>
-      </div> */}
+      <ul className="img-box">
+        {data.map((data) => (
+          <li key={data.id} className="row align-items-center m-0">
+            <div className="col-1 py-2">
+              <img
+                src={data.firstimage}
+                alt={data.title}
+                className="img-fluid rounded-circle"
+              />
+            </div>
+            <span className="col">{data.title}</span>
+            <span>{data.tel}</span>
+            <span>{data.mapx}</span>
+            <span>{data.mapy}</span>
+          </li>
+        ))}
+      </ul>
 
       <div id="footer">
         <nav id="footer_gnb">
