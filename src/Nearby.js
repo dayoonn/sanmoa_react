@@ -7,19 +7,27 @@ const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
 
 const Nearby=() => {
     const [data, setData] = useState(null);
-    var arr=[];
     useEffect(() => {
         axios.get(`${API_END_POINT}/store/restaurant`).then((res) => {
-            for(var i=0; i<=100; i++){
             setData(
-                res.data.response.body.items.item[i].title
+                res.data.response.body.items.item
             );
-            arr[i]=data;
-            console.log(arr[i]);}
-
         });
     }, []);
-    console.log(data);
+
+    let arr=[];
+    for(let objKey in data){
+        if(data.hasOwnProperty(objKey)){
+
+            arr.push(data[objKey]);}
+        }
+    console.log(arr[1])
+   console.log(arr[1]?.firstimage);
+
+
+    //for(let k=1;k<=11;k++) {
+
+    //}
 
     return (
         <div>
@@ -33,31 +41,18 @@ const Nearby=() => {
                 </header>
             </div>
 
-            <h1>{data}</h1>
-
-
-
-
 
             <div id="main_box">
                  <div>
                     <div className="whitebox_left">
-                        <img className="near_img" src="http://noms.templestay.com/images//RsImage/L_329.png"/>
-                            <a>경계선<p/>템플스테이</a>
+                        <div id='imgN'></div>
+                        <a id='nameN'></a><br/>
+                        <a id='addN'></a>
                     </div>
                     <div className="whitebox_right">
-                        <img className="near_img" src="http://noms.templestay.com/images//RsImage/L_329.png"/>
-                            <a>경계선<p/>템플스테이</a>
-                    </div>
-                </div>
-                <div>
-                    <div className="whitebox_left">
-                        <img className="near_img" src="http://noms.templestay.com/images//RsImage/L_329.png"/>
-                            <a>경계선<p/>템플스테이</a>
-                    </div>
-                    <div className="whitebox_right">
-                        <img className="near_img" src="http://noms.templestay.com/images//RsImage/L_329.png"/>
-                            <a>경계선<p/>템플스테이</a>
+                        <div id='imgN'></div>
+                        <div id='nameN'></div><br/>
+                        <div id='addN'></div>
                     </div>
                 </div>
             </div>
@@ -102,6 +97,11 @@ const Nearby=() => {
                 </div>
         </div>
     )
+    document.getElementById('imgN').innerHTML = '<img src="'+arr[1]?.firstimage+'" style="width:180px; height:120px;">';
+    document.getElementById('nameN').innerText = '<a '+arr[1]?.title+'></a>';
+    document.getElementById('addN').innerText = '<a '+arr[1]?.addr1+'></a>';
+
+
 }
 
 export default Nearby;
