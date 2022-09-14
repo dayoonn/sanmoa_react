@@ -1,341 +1,326 @@
 /*    초기화 코드    */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 img {
-    border: 0;
+  border: 0;
 }
-
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
-
 
 /* main_header */
 #main_header {
-    height: 50px;
-    background-color: darkseagreen;
-    position: relative; /* 자손 위치 지정 */
-    text-align: center; /* text 가운데 정렬 */
-    line-height: 50px; /* 줄간격 설정 */
+  height: 50px;
+  background-color: darkseagreen;
+  position: relative; /* 자손 위치 지정 */
+  text-align: center; /* text 가운데 정렬 */
+  line-height: 50px; /* 줄간격 설정 */
 }
 
 #main_header h1 {
-    color: white;
+  color: white;
 }
 
 #main_header > a {
-    display: block;
-    height: 40px;
-    position: absolute;
+  display: block;
+  height: 40px;
+  position: absolute;
 }
 
 /*메뉴 선택시 서브타이틀*/
 #menu_header {
-    height: 42px;
-    background-color: lightgray;
-    position: relative; /* 자손 위치 지정 */
-    text-align: center; /* text 가운데 정렬 */
-    line-height: 42px; /* 줄간격 설정 */
+  height: 42px;
+  background-color: lightgray;
+  position: relative; /* 자손 위치 지정 */
+  text-align: center; /* text 가운데 정렬 */
+  line-height: 42px; /* 줄간격 설정 */
 }
 
 #menu_header h2 {
-    color: black;
-    font-family: 'Noto Serif KR', serif;
+  color: black;
+  font-family: 'Noto Serif KR', serif;
 }
-
 
 /* Navigation 꾸미기 */
 
 #footer {
-    position: fixed;
-    background-color: whitesmoke;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 6rem;
-
+  position: fixed;
+  background-color: whitesmoke;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6rem;
 }
 
 #footer_gnb {
-    overflow: hidden;
-    border-bottom: 1px solid lightslategray;
-    background-color: whitesmoke;
-    text-align: center;
-
+  overflow: hidden;
+  border-bottom: 1px solid lightslategray;
+  background-color: whitesmoke;
+  text-align: center;
 }
 
 #footer_gnb > div {
-    float: left; /* 메뉴 수평 정렬 */
-    width: 19%;
-    height: 6rem; /* 각 메뉴별 크기 지정 */
-    line-height: 30px; /* 줄간격 지정함, 텍스트 수직 정렬*/
-    text-align: center; /* 텍스트 가운데 정렬 */
-    /*color: red; font-weight: bold;    /* 텍스트 색상 및 굵기 지정 */
-    padding: 4px 1px;
-
-
+  float: left; /* 메뉴 수평 정렬 */
+  width: 19%;
+  height: 6rem; /* 각 메뉴별 크기 지정 */
+  line-height: 30px; /* 줄간격 지정함, 텍스트 수직 정렬*/
+  text-align: center; /* 텍스트 가운데 정렬 */
+  /*color: red; font-weight: bold;    /* 텍스트 색상 및 굵기 지정 */
+  padding: 4px 1px;
 }
 
- a:link {
-    text-decoration: none;
-    color: #129633;
+a:link {
+  text-decoration: none;
+  color: #129633;
 }
 
 #footer_gnb > div > a {
-    text-align: center; /* 텍스트 가운데 정렬 */
-    width: 19%;
-    height: 6rem; /* 각 메뉴별 크기 지정 */
-    color: #129633;
-    text-decoration: none;
-    font-weight: bold; /* 텍스트 색상 및 굵기 지정 */
-    font-family: 'Noto Serif KR', serif;
+  text-align: center; /* 텍스트 가운데 정렬 */
+  width: 19%;
+  height: 6rem; /* 각 메뉴별 크기 지정 */
+  color: #129633;
+  text-decoration: none;
+  font-weight: bold; /* 텍스트 색상 및 굵기 지정 */
+  font-family: 'Noto Serif KR', serif;
 }
 
 .icon_div {
-    text-align: center; /*아이콘 가운데 정렬*/
-    margin-top: 5px;
-
-
+  text-align: center; /*아이콘 가운데 정렬*/
+  margin-top: 5px;
 }
 
 /*footerbar icon*/
 
-
 .menu_icon {
-    max-width: 38px;
-    max-height: 38px;
-
+  max-width: 38px;
+  max-height: 38px;
 }
-
 
 /*    검색페이지 다윤    */
-.main_scroll{
-    overflow: scroll;
+.main_scroll {
+  overflow: scroll;
 }
 
-html, body {
-    height: 100%;
-    overflow: scroll;
-    margin-bottom: 6rem;
+html,
+body {
+  height: 100%;
+  overflow: scroll;
+  margin-bottom: 6rem;
 }
 
 #main_box {
-    height: 90%;
-    background-color: white;
-
-
+  height: 90%;
+  background-color: white;
 }
 
 #search_box {
-    height: 50px;
-    background-color: white;
-    position: relative; /* 자손 위치 지정 */
-    text-align: center; /* text 가운데 정렬 */
-    padding-right: 10px;
-    padding-left: 10px;
-    line-height: 50px; /* 줄간격 설정 */
+  height: 50px;
+  background-color: white;
+  position: relative; /* 자손 위치 지정 */
+  text-align: center; /* text 가운데 정렬 */
+  padding-right: 10px;
+  padding-left: 10px;
+  line-height: 50px; /* 줄간격 설정 */
 }
 
-input[type=text] {
-    width: 75%;
-    height: 35px;
-    font-size: 20px;
-    border-radius: 10px;
-    border: 2px solid darkseagreen;
+input[type='text'] {
+  width: 75%;
+  height: 35px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 2px solid darkseagreen;
 }
 
 #button {
-    width: 10%;
-    height: 35px;
-    font-size: 20px;
-    border-radius: 10px;
-    border: 2px solid darkseagreen;
-    background-color: darkseagreen;
-    color: white;
+  width: 10%;
+  height: 35px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 2px solid darkseagreen;
+  background-color: darkseagreen;
+  color: white;
 }
-
 
 #menu {
-    width: 10%;
-    height: 35px;
-    font-size: 20px;
-    color: darkseagreen;
-    background: white;
-    border: 0;
-
+  width: 10%;
+  height: 35px;
+  font-size: 20px;
+  color: darkseagreen;
+  background: white;
+  border: 0;
 }
-
-
-
 
 /*    응급페이지 다윤    */
 
-#main_box_emerg { /*메인 박스*/
-    height: 76%;
-    width: 100%;
-    background-color: white;
-    text-align: center;
-    padding: 5px 0;
-    overflow: auto;
+#main_box_emerg {
+  /*메인 박스*/
+  height: 76%;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  padding: 5px 0;
+  overflow: auto;
 }
 
-.listbox { /*리스트타이틀+더보기했을때 박스*/
-    margin-top: 20px;
+.listbox {
+  /*리스트타이틀+더보기했을때 박스*/
+  margin-top: 20px;
 }
 
 .list {
-    padding: 10px;
-    width: 90%;
-    height: 15px;
-    line-height: 15px;
-    background: lemonchiffon;
-    display: flex;
-    margin: auto;
-    border-radius: 10px;
+  padding: 10px;
+  width: 90%;
+  height: 15px;
+  line-height: 15px;
+  background: lemonchiffon;
+  display: flex;
+  margin: auto;
+  border-radius: 10px;
 }
 
 .list_title {
-    width: 90%;
-    text-align: justify;
-    margin-left: 10px;
+  width: 90%;
+  text-align: justify;
+  margin-left: 10px;
 }
 
-.more { /*더보기 버튼*/
-    width: 10%;
-    display: block;
-
+.more {
+  /*더보기 버튼*/
+  width: 10%;
+  display: block;
 }
 
-
-.detail_more { /*더보기 했을 때 박스*/
-    padding: 20px 10px 10px 10px;
-    width: 90%;
-    line-height: 25px;
-    background: lemonchiffon;
-    display: none;
-    margin: -10px auto;
-    border-radius: 0 0 10px 10px;
-    text-align: justify;
+.detail_more {
+  /*더보기 했을 때 박스*/
+  padding: 20px 10px 10px 10px;
+  width: 90%;
+  line-height: 25px;
+  background: lemonchiffon;
+  display: none;
+  margin: -10px auto;
+  border-radius: 0 0 10px 10px;
+  text-align: justify;
 }
 
 .center-hr {
-    margin-left : auto;
-    margin-right : auto;
-    width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
 }
 
-li{
-    list-style-type:"\2d" ;
+li {
+  list-style-type: '\2d';
 }
 
 /*마이페이지 다윤*/
 
-#main_box_mypage { /*메인 박스*/
-    height: 76%;
-    width: 100%;
-    background-color: white;
-    padding: 5px 0;
-    overflow: scroll;
+#main_box_mypage {
+  /*메인 박스*/
+  height: 76%;
+  width: 100%;
+  background-color: white;
+  padding: 5px 0;
+  overflow: scroll;
 }
 
 .my_div {
-    width: 90%;
-    border-radius: 10px;
-    background: white;
-    padding: 5px;
-    margin: auto;
-    text-align: center;
+  width: 90%;
+  border-radius: 10px;
+  background: white;
+  padding: 5px;
+  margin: auto;
+  text-align: center;
 }
-
 
 .my_div > .title {
-
-    padding: 5px;
-    font-size: 25px;
-    font-weight: bold;
-    text-align: left;
-
+  padding: 5px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: left;
 }
 
-#my_name, #my_mail {
-
-    font-size: 20px;
-    padding: 5px;
-    text-align: left;
+#my_name,
+#my_mail,
+#my_phone,
+#my_age,
+#my_contry,
+#my_content,
+#my_mileage {
+  font-size: 20px;
+  padding: 5px;
+  text-align: left;
 }
 
-#my_correction,#logout {
-
-    font-size: 15px;
-    padding: 5px;
-    margin-left: 15px;
-    margin-right: 15px;
-    background: white;
-    border-radius: 10px;
-    border-style: solid;
+#my_correction,
+#logout {
+  font-size: 15px;
+  padding: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+  background: white;
+  border-radius: 10px;
+  border-style: solid;
 }
 
 .my_div_mile {
-    width: 90%;
-    border-radius: 10px;
-    background: lightgray;
-    padding: 5px;
-    margin: auto;
+  width: 90%;
+  border-radius: 10px;
+  background: lightgray;
+  padding: 5px;
+  margin: auto;
 }
 
 .my_div_mile > .title {
-
-    padding: 5px;
-    font-size: 20px;
-    text-align: center;
+  padding: 5px;
+  font-size: 20px;
+  text-align: center;
 }
 
 #mileage {
-    padding: 5px;
-    font-size: 25px;
-    text-align: center;
-    font-weight: bold;
+  padding: 5px;
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
 }
 
 #hiking_record {
-
-    font-size: 20px;
-    padding: 5px;
+  font-size: 20px;
+  padding: 5px;
 }
 
 /*마이페이지 수정 다윤*/
 
-.my_div > input[type=text], [type=password] {
-    width: 95%;
-    height: 30px;
-    line-height: 20px;
-    border-color: #8a8a8a;
-    font-size: 20px;
-    border-radius: 10px;
-    padding: 5px;
-    margin: auto;
-    border-style: solid;
-
+.my_div > input[type='text'],
+[type='password'] {
+  width: 95%;
+  height: 30px;
+  line-height: 20px;
+  border-color: #8a8a8a;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 5px;
+  margin: auto;
+  border-style: solid;
 }
 
 .my_div > input:focus {
-    outline: 2px solid darkseagreen;
+  outline: 2px solid darkseagreen;
 }
 
-.co_button{
-    text-align: center;
+.co_button {
+  text-align: center;
 }
-.co_button > input[type=submit] {
-    height: 30px;
-    width: 40%;
-    line-height: 20px;
-    border-color: #8a8a8a;
-    font-size: 20px;
-    border-radius: 10px;
-    padding: 5px;
-    margin: auto;
+.co_button > input[type='submit'] {
+  height: 30px;
+  width: 40%;
+  line-height: 20px;
+  border-color: #8a8a8a;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 5px;
+  margin: auto;
 }
