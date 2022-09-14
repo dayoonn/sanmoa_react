@@ -33,6 +33,7 @@ const MyPage = () => {
       .catch(function (error) {
         console.log(error);
         alert('회원정보가 없습니다.');
+        window.location.href = '/login';
       });
   }, []);
   const onClickHandler = () => {
@@ -126,10 +127,17 @@ const MyPage = () => {
           </div>
 
           <div>
-            <div className="icon_div">
-              <img src={require('./img/matzip.png')} className="menu_icon" />
+            <div>
+              <Link to="/Nearby">
+                <div className="icon_div">
+                  <img
+                    src={require('./img/matzip.png')}
+                    className="menu_icon"
+                  />
+                </div>
+                맛집
+              </Link>
             </div>
-            <a href="">맛집</a>
           </div>
         </nav>
       </div>
