@@ -44,18 +44,81 @@ const Login = () => {
   const onChangePassword = (e) => {
     setPassword(e.target.value);
   };
+  /**추가**/
+    const [toggleMenu, setToggleMenu] = useState(false)
+    const [toggleBar, setToggleBar] = useState(true)
+
+    const toggleChange = () => {
+        setToggleMenu(!toggleMenu)
+        setToggleBar(!toggleBar)
+    }
+
+    const onMenuClick = () => {
+
+        setToggleMenu(!toggleMenu)
+        setToggleBar(!toggleBar)
+    }
+    /**추가**/
 
   return (
     <div>
-      <div>
-        <header id="main_header">
-          <h1>SANMOA</h1>
-        </header>
+     <nav>
+                <header id="main_header">
+                    <h1>SANMOA</h1>
+                </header>
 
-        <header id="menu_header">
-          <h2>메뉴 타이틀</h2>
-        </header>
-      </div>
+                <header id="menu_header">
+                    <div className="menu_inline" >
+
+                        <button id="menu" type="primary" onClick={toggleChange}>
+                            { toggleBar ? <MenuOutlined /> : <MenuFoldOutlined /> }
+                        </button>
+
+                        <div className="menu_title"> <h2></h2></div>
+
+                    < /div>
+                </header>
+            </nav>
+
+            <div className="nav_bar">
+                { toggleMenu &&
+                    <Menu
+                        defaultSelectedKeys={['1']}
+                        mode="inline"
+                        theme="light"
+                        inlineCollapsed={toggleBar}
+                        onClick={onMenuClick}
+                    >
+                        <Menu.Item>
+                            <Link to="/">
+                                등산로 검색
+                            </Link>
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            <Link to="/community">
+                                커뮤니티
+                            </Link>
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            <Link to="/mypage">
+                                마이페이지
+                            </Link>
+                        </Menu.Item>
+                        <Menu.Item>
+                            <Link to="/emergency">
+                                응급처치
+                            </Link>
+                        </Menu.Item>
+                        <Menu.Item>
+                            <Link to="/Nearby">
+                                맛집 검색
+                            </Link>
+                        </Menu.Item>
+                    </Menu>
+                }
+            </div>
 
       <div id="container" className="main_container">
         <article>
@@ -99,57 +162,7 @@ const Login = () => {
         </article>
       </div>
 
-      <div id="footer">
-        <nav id="footer_gnb">
-          <div>
-            <Link to="/">
-              <div className="icon_div">
-                <img src={require('./img/search.png')} className="menu_icon" />
-              </div>
-              검색
-            </Link>
-          </div>
-
-          <div>
-            <Link to="/">
-              <div className="icon_div">
-                <img
-                  src={require('./img/community.png')}
-                  className="menu_icon"
-                />
-              </div>
-              커뮤니티
-            </Link>
-          </div>
-
-          <div>
-            <Link to="/login">
-              <div className="icon_div">
-                <img src={require('./img/mypage.png')} className="menu_icon" />
-              </div>
-              마이페이지
-            </Link>
-          </div>
-
-          <div>
-            <Link to="/emergency">
-              <div className="icon_div">
-                <img src={require('./img/aid.png')} className="menu_icon" />
-              </div>
-              응급처치
-            </Link>
-          </div>
-
-          <div>
-            <Link to="/Nearby">
-              <div className="icon_div">
-                <img src={require('./img/matzip.png')} className="menu_icon" />
-              </div>
-              맛집
-            </Link>
-          </div>
-        </nav>
-      </div>
+     
     </div>
   );
 };
