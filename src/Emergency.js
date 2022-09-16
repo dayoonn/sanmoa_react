@@ -60,7 +60,7 @@ const Emergency = () => {
                             { toggleBar ? <MenuOutlined /> : <MenuFoldOutlined /> }
                         </button>
 
-                        <div className="menu_title"> <h2>메뉴 타이틀</h2></div>
+                        <div className="menu_title"> <h2>응급 처치</h2></div>
 
                     < /div>
                 </header>
