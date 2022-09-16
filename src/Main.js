@@ -287,7 +287,7 @@ const Main = () => {
                             { toggleBar ? <MenuOutlined /> : <MenuFoldOutlined /> }
                         </button>
 
-                        <div className="menu_title"> <h2>메뉴 타이틀</h2></div>
+                        <div className="menu_title"> <h2>등산로 검색</h2></div>
 
                     < /div>
                 </header>
@@ -335,7 +335,7 @@ const Main = () => {
 
             <header id="search_box">
                 <form onSubmit={onSubmit} >
-                    <input type="text" id="keyword" onChange={ (e)=>{ setKeyward(e.target.value)} }/>
+                    <input type="text"  placeholder={"산을 입력해주세요."} id="keyword" onChange={ (e)=>{ setKeyward(e.target.value)} }/>
                     <button id="button" type="primary" htmlType="submit"><i className="fa-solid fa-magnifying-glass"> </i></button>
                 </form>
             </header>
