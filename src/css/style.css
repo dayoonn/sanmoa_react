@@ -108,12 +108,12 @@ a:link {
 html,
 body {
   height: 100%;
-  overflow: scroll;
+  /*overflow: scroll;*/
   margin-bottom: 6rem;
 }
 
 #main_box {
-  height: 90%;
+  height: 100%;
   background-color: white;
 }
 
@@ -147,18 +147,19 @@ input[type='text'] {
 
 #menu {
   width: 10%;
-  height: 35px;
-  font-size: 20px;
-  color: darkseagreen;
-  background: white;
-  border: 0;
+    height: 42px;
+    font-size: 20px;
+    color: white;
+    background:lightgray;
+    border: 0;
+    position: absolute;
 }
 
 /*    응급페이지 다윤    */
 
 #main_box_emerg {
   /*메인 박스*/
-  height: 76%;
+  height: 100%;
   width: 100%;
   background-color: white;
   text-align: center;
@@ -220,7 +221,7 @@ li {
 
 #main_box_mypage {
   /*메인 박스*/
-  height: 76%;
+  height: 100%;
   width: 100%;
   background-color: white;
   padding: 5px 0;
@@ -323,4 +324,32 @@ li {
   border-radius: 10px;
   padding: 5px;
   margin: auto;
+}
+
+
+/*추가*/
+
+.menu_inline{
+    display: flex;
+}
+.menu_title{
+    text-align: center;
+    width: 100%;
+}
+
+.nav_bar{
+  width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+
+    justify-content: start;
+    z-index: 100;
+    position:relative;
+    font-family: 'Noto Serif KR', serif;
+    font-weight: bold;
+    line-height: 30px;
+
+
+
 }
