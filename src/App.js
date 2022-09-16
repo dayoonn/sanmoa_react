@@ -34,11 +34,11 @@ const App = () => {
     <>
       <Router>
         <Routes>
-          <Route path="/" exact={true} element={<Map />} />
+          <Route path="/" exact={true} element={<MainSearch/>} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/mypage_co" element={<MyPage_co />} />
           <Route path="/emergency" element={<Emergency />} />
-          <Route path="/mainsearch" element={<MainSearch />} />
+          <Route path='/mapsearch' element={<Main />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Nearby" element={<Nearby />} />
