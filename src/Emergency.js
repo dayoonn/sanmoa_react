@@ -4,9 +4,7 @@ import './css/style.css';
 import {Link} from "react-router-dom";
 import {MenuFoldOutlined, MenuOutlined} from "@ant-design/icons";
 import {Menu} from "antd";
-//import { UncontrolledCollapse, Button, CardBody, Card } from 'reactstrap';
-import { MenuOutlined, MenuFoldOutlined } from '@ant-design/icons';
-import { Menu, Button } from 'antd';
+
 
 const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
 
