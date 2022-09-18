@@ -13,6 +13,7 @@ import Signup from './signup';
 import Login from './login';
 import Nearby from './Nearby';
 import Login_welcome from './login_welcome';
+import 'antd/dist/antd.css';
 
 const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -34,11 +35,11 @@ const App = () => {
     <>
       <Router>
         <Routes>
-          <Route path="/" exact={true} element={<MainSearch/>} />
+          <Route path="/" exact={true} element={<MainSearch />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/mypage_co" element={<MyPage_co />} />
           <Route path="/emergency" element={<Emergency />} />
-          <Route path='/mapsearch' element={<Main />} />
+          <Route path="/mapsearch" element={<Main />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Nearby" element={<Nearby />} />
