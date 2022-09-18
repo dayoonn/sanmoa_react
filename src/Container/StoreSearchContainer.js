@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
-import { Input, Row, Col } from 'antd';
+import { Button, Input, Row, Col } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 import StoreCard from '../Component/StoreSearch';
 import axios from 'axios';
 
@@ -8,22 +9,17 @@ const { Search } = Input;
 const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
 
 const StoreSearchContainer = () => {
-  const [query, setQuery] = useState('횟집');
+  const [query, setQuery] = useState('');
   const handleQuery = (e) => {
     setQuery(e.target.value);
   };
 
   const [items, setItems] = useState([]);
-
   const handleButton = () => {
     axios
-      .post(
-        `${API_END_POINT}/store/search`,
-        {
-          word: query,
-        },
-        {}
-      )
+      .post(`${API_END_POINT}/store/search`, {
+        word: query,
+      })
       .then((res) => {
         if (res.data) {
           console.log(res.data);
@@ -39,21 +35,29 @@ const StoreSearchContainer = () => {
       <div
         style={{ display: 'flex', justifyContent: 'center', padding: '2rem' }}
       >
-        <Search
+        <Input
+          type="text"
           placeholder="검색어를 입력해주세요"
-          onSearch={(value) => console.log(value)}
-          onChange={handleQuery}
-          onClick={handleButton}
           style={{ width: 250 }}
+          onSearch={(value) => console.log(value)}
+          onPressEnter={handleButton}
+          onChange={handleQuery}
+        />
+        <Button
+          icon={<SearchOutlined />}
+          type="submit"
+          style={{ width: 30 }}
+          onSearch={(value) => console.log(value)}
+          onClick={handleButton}
         />
       </div>
       <div>
         <Row>
           {items &&
-            items.map((item) => {
+            items.map((items) => {
               return (
                 <Col xs={24} sm={12} md={6} lg={4} xl={4}>
-                  <StoreCard item={item}></StoreCard>
+                  <StoreCard item={items}></StoreCard>
                 </Col>
               );
             })}
