@@ -28,9 +28,10 @@ const MainSearch = () => {
         navigator.geolocation.getCurrentPosition(
           function (position) {
             //alert("좌표"+ position.coords.latitude + ' ' + position.coords.longitude);
+            console.log(Longtitude + ' , ' + Latitude);
             setLatitude(position.coords.latitude);
             setLongtitude(position.coords.longitude);
-            console.log(Longtitude + ' , ' + Latitude);
+
             //x:longtitude
             //y:latitude
           },
@@ -52,8 +53,8 @@ const MainSearch = () => {
     /**POST**/
     axios
       .post(`${API_END_POINT}/sanmoa/route`, {
-        xLocation: 126.7039926, //바꾸기!!!!!!!!!!!
-        yLocation: 37.5278857,
+        xLocation: Longtitude, //바꾸기!!!!!!!!!!!
+        yLocation: Latitude,
       })
       .then(function (response) {
         console.log(response);
