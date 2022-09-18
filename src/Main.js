@@ -218,6 +218,9 @@ const Main = () => {
 
         console.log(response);
         console.log('post 요청 성공');
+        if (response.data.data.length === 0) {
+          alert('해당 산은 지원되지 않습니다.');
+        }
         drawmap(response);
 
         /**카카오맵**/
