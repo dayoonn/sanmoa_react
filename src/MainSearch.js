@@ -257,7 +257,7 @@ const MainSearch = () => {
 
             <div className="menu_title">
               {' '}
-              <h2>내 주위 등산로 좌표안바꿈제발바꿔</h2>
+              <h2>등산로 검색</h2>
             </div>
           </div>
         </header>
