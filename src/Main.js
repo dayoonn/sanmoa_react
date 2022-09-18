@@ -235,7 +235,7 @@ const Main = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log('fff', first_keyword);
-    setKeyward(document.querySelector('keyword').value);
+    setKeyward(document.getElementById('keyword').value);
 
     console.log('keyword', keyword);
 
@@ -290,7 +290,6 @@ const Main = () => {
             </button>
 
             <div className="menu_title">
-              {' '}
               <h2>등산로 검색</h2>
             </div>
           </div>
