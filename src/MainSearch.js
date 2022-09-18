@@ -7,26 +7,19 @@ import { useNavigate } from 'react-router-dom';
 import './css/map.css';
 import { MenuFoldOutlined, MenuOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
-
 const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
-
 const MainSearch = () => {
   const navigate = useNavigate();
-
   const [Latitude, setLatitude] = useState(0);
   const [Longtitude, setLongtitude] = useState(0);
-
   var count_coordinate = 0; //좌표개수
   var count_course = 0; //등산로개수
   var hiking_arry = [[]]; //
   var id_arry = [];
   var linePath = [[]]; //등산로별 path
-
   var polyline = []; //카카오 그리기(선) 배열
   var positions = []; //카카오 마커 및 인포윈도우
-
   var linepath_bold = [];
-
   useEffect(() => {
     /**GPS**/
     function getLocation() {
@@ -35,10 +28,8 @@ const MainSearch = () => {
         navigator.geolocation.getCurrentPosition(
           function (position) {
             //alert("좌표"+ position.coords.latitude + ' ' + position.coords.longitude);
-
             setLatitude(position.coords.latitude);
             setLongtitude(position.coords.longitude);
-
             console.log(Longtitude + ' , ' + Latitude);
             //x:longtitude
             //y:latitude
@@ -56,10 +47,8 @@ const MainSearch = () => {
         alert('GPS를 지원하지 않습니다');
       }
     }
-
     getLocation();
     /**GPS**/
-
     /**POST**/
     axios
       .post(`${API_END_POINT}/sanmoa/route`, {
@@ -69,14 +58,11 @@ const MainSearch = () => {
       .then(function (response) {
         console.log(response);
         console.log('post 요청 성공');
-
         /**요청 성공시**/
-
         //등산로 코스 개수
         count_course =
           response.data.response.result.featureCollection.features.length; //코스 개수
         console.log('코스 개수: ', count_course);
-
         for (let j = 0; j < count_course; j++) {
           id_arry[j] =
             response.data.response.result.featureCollection.features[j].id;
@@ -87,39 +73,31 @@ const MainSearch = () => {
               j
             ].geometry.coordinates[0];
           console.log(' 코스별 좌표 :: ', hiking_arry);
-
           //좌표수
           count_coordinate =
             response.data.response.result.featureCollection.features[j].geometry
               .coordinates[0].length;
           //  console.log("좌표 개수: ", count_coordinate);
-
           var linePath_co = []; //코스별 선으로 표시할 좌표를 넣을 배열
-
           for (let i = 0; i < count_coordinate; i++) {
             linePath_co.push(
               new kakao.maps.LatLng(hiking_arry[j][i][1], hiking_arry[j][i][0])
             );
           }
-
           //코스별로 이중배열에 저장
           linePath[j] = linePath_co;
           console.log('linePath[j]', j, linePath);
         } //for문 닫힘
-
         /**카카오맵 띄우기**/
         var mapcontainer = document.getElementById('map');
         var mapoptions = {
-          center: new kakao.maps.LatLng(37.5278857, 126.7039926), //철마 좌표 (GPS좌표로 변경하기!)
+          center: new kakao.maps.LatLng(37.568533, 126.98158), //철마 좌표 (GPS좌표로 변경하기!)
           level: 3,
         };
-
         var map = new kakao.maps.Map(mapcontainer, mapoptions); //지도 생성
-
         for (let j = 0; j < count_course; j++) {
           var colorCode =
             '#' + Math.round(Math.random() * 0xffffff).toString(16);
-
           // 지도에 표시할 선을 생성합니다
           polyline[j] = new kakao.maps.Polyline({
             path: linePath[j], // 선을 구성하는 좌표배열 입니다
@@ -129,7 +107,6 @@ const MainSearch = () => {
             strokeStyle: 'solid', // 선의 스타일입니다
           });
           polyline[j].setMap(map); // 지도에 선을 표시합니다
-
           //인포윈도우 변수
           var mntn_nm =
             response.data.response.result.featureCollection.features[0]
@@ -146,7 +123,6 @@ const MainSearch = () => {
           var cat_nam =
             response.data.response.result.featureCollection.features[0]
               .properties.cat_nam; //산 난이도
-
           positions.push({
             content:
               '<div style="width:100%; padding:5px;"><li>산명칭:' +
@@ -173,7 +149,6 @@ const MainSearch = () => {
           });
         }
         console.log('positions[]', positions);
-
         for (var i = 0; i < positions.length; i++) {
           // 마커를 생성합니다
           var marker = new kakao.maps.Marker({
@@ -181,13 +156,11 @@ const MainSearch = () => {
             position: positions[i].latlng, // 마커의 위치
             zIndex: positions[i].path_ID, // 코스 코드
           });
-
           console.log('마커', marker);
           // 마커에 표시할 인포윈도우를 생성합니다
           var infowindow = new kakao.maps.InfoWindow({
             content: positions[i].content, // 인포윈도우에 표시할 내용
           });
-
           // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
           // 이벤트 리스너로는 클로저를 만들어 등록합니다
           // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
@@ -202,15 +175,12 @@ const MainSearch = () => {
             makeOutListener(infowindow)
           );
         }
-
         // 인포윈도우를 표시하는 클로저를 만드는 함수입니다
         function makeOverListener(map, marker, infowindow) {
           return function () {
             infowindow.open(map, marker);
-
             var markerindex = marker.getZIndex(); //마커의 코스 코드 저장
             console.log('코스 코드', marker.getZIndex());
-
             for (let i = 0; i < count_course; i++) {
               if (id_arry[i] === markerindex) {
                 //마커의 코스코드와 좌표의 코스코드가 같다면 저장
@@ -226,7 +196,6 @@ const MainSearch = () => {
               }
             }
             console.log('linePathbold', linepath_bold);
-
             polyline = new kakao.maps.Polyline({
               path: linepath_bold, // 선을 구성하는 좌표배열 입니다
               strokeWeight: 5, // 선의 두께 입니다
@@ -237,7 +206,6 @@ const MainSearch = () => {
             polyline.setMap(map); // 지도에 선을 표시합니다
           };
         }
-
         // 인포윈도우를 닫는 클로저를 만드는 함수입니다
         function makeOutListener(infowindow) {
           return function () {
@@ -245,9 +213,7 @@ const MainSearch = () => {
             polyline.setMap(null);
           };
         }
-
         /**카카오맵 띄우기**/
-
         /**요청 성공시**/
       })
       .catch(function (error) {
@@ -256,7 +222,6 @@ const MainSearch = () => {
       });
     /**POST**/
   }, []);
-
   const onSubmit = (e) => {
     e.preventDefault();
     //document.location.href = '/test2';
@@ -266,16 +231,13 @@ const MainSearch = () => {
       },
     });
   };
-
   /**추가**/
   const [toggleMenu, setToggleMenu] = useState(false);
   const [toggleBar, setToggleBar] = useState(true);
-
   const toggleChange = () => {
     setToggleMenu(!toggleMenu);
     setToggleBar(!toggleBar);
   };
-
   const onMenuClick = () => {
     setToggleMenu(!toggleMenu);
     setToggleBar(!toggleBar);
@@ -287,7 +249,6 @@ const MainSearch = () => {
         <header id="main_header">
           <h1>SANMOA</h1>
         </header>
-
         <header id="menu_header">
           <div className="menu_inline">
             <button id="menu" type="primary" onClick={toggleChange}>
@@ -301,7 +262,6 @@ const MainSearch = () => {
           </div>
         </header>
       </nav>
-
       <div className="nav_bar">
         {toggleMenu && (
           <Menu
@@ -314,11 +274,9 @@ const MainSearch = () => {
             <Menu.Item>
               <Link to="/">등산로 검색</Link>
             </Menu.Item>
-
             <Menu.Item>
               <Link to="/community">커뮤니티</Link>
             </Menu.Item>
-
             <Menu.Item>
               <Link to="/mypage">마이페이지</Link>
             </Menu.Item>
