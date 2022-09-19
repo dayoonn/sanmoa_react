@@ -124,7 +124,8 @@ body {
   text-align: center; /* text 가운데 정렬 */
   padding-right: 10px;
   padding-left: 10px;
-  line-height: 50px; /* 줄간격 설정 */
+  padding-top: 5px;
+  line-height: 35px; /* 줄간격 설정 */
 }
 
 input[type='text'] {
