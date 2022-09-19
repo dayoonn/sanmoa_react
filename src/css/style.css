@@ -397,8 +397,8 @@ li {
 }
 
 .voc-view-go-list-btn {
-  border: 0;
-  padding: 10px;
+  border: 10px;
+  padding: 5px;
   background-color: #ffd9d9;
 }
 
@@ -416,4 +416,11 @@ li {
 .voc-view-row > *:nth-child(2) {
   margin: 10px 0;
   width: 70%;
+}
+.voc-header {
+  width: 80%;
+  margin: 0 auto;
+  /* text-align: center; */
+  border-spacing: 0;
+  display: block;
 }
