@@ -83,7 +83,12 @@ const PostList = (props) => {
           </Menu>
         )}
       </div>
-      <CommonTable headersName={['글번호', '제목', '등록일']}>
+      <Link to="/postWrite">
+        <button align="right" className="voc-view-go-list-btn">
+          게시글 작성
+        </button>
+      </Link>
+      <CommonTable headersName={['번호', '제목', '등록일']}>
         {postlist &&
           postlist.map((item, index) => {
             let dateObj = new Date(item.postdate);

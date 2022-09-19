@@ -12,6 +12,7 @@ import Nearby from './Nearby';
 import 'antd/dist/antd.css';
 import PostMain from './PostMain';
 import PostView from './PostView';
+import PostWrite from './PostWrite';
 
 const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/mapsearch" element={<Main />} />
           <Route path="/postView/:id" element={<PostView />} />
           <Route path="/community" element={<PostMain />} />
+          <Route path="/postWrite" element={<PostWrite />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Nearby" element={<Nearby />} />
