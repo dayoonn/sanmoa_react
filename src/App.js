@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Signup from './signup';
 import Login from './login';
 import Nearby from './Nearby';
+import Commu from './Commu';
 import Login_welcome from './login_welcome';
 import 'antd/dist/antd.css';
 
@@ -19,7 +20,6 @@ const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
 
 const App = () => {
   /* const [data, setData] = useState(null);
-
      useEffect(() => {
          axios.get(`${API_END_POINT}/store/cafe`).then((res) => {
              setData(
@@ -39,6 +39,7 @@ const App = () => {
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/mypage_co" element={<MyPage_co />} />
           <Route path="/emergency" element={<Emergency />} />
+          <Route path="/community" element={<Commu />} />
           <Route path="/mapsearch" element={<Main />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
