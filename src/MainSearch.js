@@ -111,19 +111,19 @@ const MainSearch = () => {
           polyline[j].setMap(map); // 지도에 선을 표시합니다
           //인포윈도우 변수
           var mntn_nm =
-            response.data.response.result.featureCollection.features[0]
+            response.data.response.result.featureCollection.features[j]
               .properties.mntn_nm; //산이름
           var sec_len =
-            response.data.response.result.featureCollection.features[0]
+            response.data.response.result.featureCollection.features[j]
               .properties.sec_len; //총 길이
           var start_z =
-            response.data.response.result.featureCollection.features[0]
+            response.data.response.result.featureCollection.features[j]
               .properties.start_z; //시작 높이
           var end_z =
-            response.data.response.result.featureCollection.features[0]
+            response.data.response.result.featureCollection.features[j]
               .properties.end_z; //종착 높이
           var cat_nam =
-            response.data.response.result.featureCollection.features[0]
+            response.data.response.result.featureCollection.features[j]
               .properties.cat_nam; //산 난이도
           positions.push({
             content:

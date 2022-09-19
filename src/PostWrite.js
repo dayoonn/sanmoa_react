@@ -12,9 +12,11 @@ const PostWrite = () => {
     alert('회원정보가 없습니다.');
     window.location.href = '/login';
   }
-  const [contents, setContents] = React.useState('');
+  const [postTitle, setPostTitle] = useState('');
+  const [postContents, setPostContents] = React.useState('');
+
   const changeContents = (e) => {
-    setContents(e.target.value);
+    setPostContents(e.target.value);
   };
 
   useEffect(() => {
