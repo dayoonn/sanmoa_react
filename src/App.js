@@ -13,6 +13,7 @@ import 'antd/dist/antd.css';
 import PostMain from './PostMain';
 import PostView from './PostView';
 import PostWrite from './PostWrite';
+import PostUpdate from './PostUpdate';
 import Emergency from './Emergency';
 
 const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/postView/:id" element={<PostView />} />
           <Route path="/community" element={<PostMain />} />
           <Route path="/postWrite" element={<PostWrite />} />
+          <Route path="/postUpdate/:id" element={<PostUpdate />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Nearby" element={<Nearby />} />
