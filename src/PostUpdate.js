@@ -1,29 +1,32 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './css/Post.css';
 import './css/style.css';
-import { Link } from 'react-router-dom';
-import { MenuOutlined, MenuFoldOutlined } from '@ant-design/icons';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { MenuFoldOutlined, MenuOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 
 const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
 
-const PostWrite = () => {
+const PostUpdate = () => {
   if (!localStorage.getItem('login-token')) {
     alert('회원정보가 없습니다.');
     window.location.href = '/login';
   }
-
-  const [postTitle, setPostTitle] = useState('');
-  const [postContent, setPostContent] = useState('');
+  const navigate = useNavigate();
+  const { id } = useParams();
+  console.log(id);
+  const [updateTitle, setPUTTitle] = useState('');
+  const [updateContent, setPUTContent] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(
-        `${API_END_POINT}/board`,
+      .put(
+        `${API_END_POINT}/board/${id}`,
         {
-          title: postTitle,
-          content: postContent,
+          title: updateTitle,
+          content: updateContent,
         },
         {
           headers: {
@@ -33,8 +36,14 @@ const PostWrite = () => {
       )
       .then(function (res) {
         if (res) {
-          alert(res.data.data);
-          window.location.href = '/community';
+          if (res.data.error) {
+            alert(res.data.error);
+            navigate(-1);
+          }
+          if (res.data.data) {
+            alert(res.data.data);
+            navigate(-1);
+          }
         }
       })
       .catch(function (error) {
@@ -44,10 +53,10 @@ const PostWrite = () => {
   };
 
   const onChangetitle = (e) => {
-    setPostTitle(e.target.value);
+    setPUTTitle(e.target.value);
   };
   const onChangeContent = (e) => {
-    setPostContent(e.target.value);
+    setPUTContent(e.target.value);
   };
 
   /**추가**/
@@ -117,31 +126,32 @@ const PostWrite = () => {
       </div>
 
       <div id="post_title">
-        <h2 align="center">글 작성</h2>
+        <h2 align="center">글 수정</h2>
         <div>
           <div id="box2" align="center">
             <textarea
               type="text"
+              required="required"
               className="inputbox"
               placeholder="제목을 입력하세요"
               onChange={onChangetitle}
-              value={postTitle}
+              value={updateTitle}
             />
           </div>
           <div align="center">
             <textarea
+              type="text"
+              required="required"
               className="inputbox2"
               placeholder="내용을 입력하세요"
               onChange={onChangeContent}
-              value={postContent}
+              value={updateContent}
             />
           </div>
           <div align="center">
-            <Link to="/community">
-              <button type="button" onClick={onSubmit}>
-                submit
-              </button>
-            </Link>
+            <button type="button" onClick={onSubmit}>
+              submit
+            </button>
           </div>
         </div>
       </div>
@@ -149,4 +159,4 @@ const PostWrite = () => {
   );
 };
 
-export default PostWrite;
+export default PostUpdate;

@@ -427,3 +427,28 @@ li {
   border-spacing: 0;
   display: block;
 }
+
+.inputbox {
+  width: 90%;
+  border-radius: 10px;
+  background: white;
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+}
+.inputbox2 {
+  width: 90%;
+  height: 300px;
+  border-radius: 10px;
+  background: white;
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+}
+.box2 {
+  text-align: center;
+}
+.crud_button {
+  text-align: center;
+  margin-right: 20px;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/Post.css';
+import './css/style.css';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { BugOutlined, MenuFoldOutlined, MenuOutlined } from '@ant-design/icons';
 import { Button, Menu } from 'antd';
@@ -19,6 +20,35 @@ const PostView = () => {
       setPostUser(response.data.user);
     });
   }, []);
+
+  const onDelete = (e) => {
+    if (!localStorage.getItem('login-token')) {
+      alert('회원정보가 없습니다.');
+      window.location.href = '/login';
+    }
+    e.preventDefault();
+    axios
+      .delete(`${API_END_POINT}/board/${id}`, {
+        headers: {
+          authorization: localStorage.getItem('login-token'),
+        },
+      })
+      .then(function (res) {
+        if (res) {
+          if (res.data.error) {
+            alert(res.data.error);
+          }
+          if (res.data.data) {
+            alert(res.data.data);
+            window.location.href = '/community';
+          }
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+        alert('작성 도중에 오류가 발생하였습니다.');
+      });
+  };
 
   /**추가**/
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -116,12 +146,20 @@ const PostView = () => {
           ) : (
             '해당 게시글을 찾을 수 없습니다.'
           )}
-          <button
-            className="post-view-go-list-btn"
-            onClick={() => navigate(-1)}
-          >
-            목록으로 돌아가기
-          </button>
+          <div id="crud_button" align="center">
+            <button
+              className="post-view-go-list-btn"
+              onClick={() => navigate(-1)}
+            >
+              목록
+            </button>
+            <Link to={`/postUpdate/${id}`}>
+              <button className="post-view-go-list-btn">수정</button>
+            </Link>
+            <button className="post-view-go-list-btn" onClick={onDelete}>
+              삭제
+            </button>
+          </div>
         </div>
       </>
     </div>
