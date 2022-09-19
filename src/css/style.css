@@ -173,10 +173,11 @@ input[type='text'] {
 }
 
 .list {
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   width: 90%;
-  height: 15px;
-  line-height: 15px;
+  height: 20px;
+  line-height: 20px;
   background: lemonchiffon;
   display: flex;
   margin: auto;
@@ -187,6 +188,7 @@ input[type='text'] {
   width: 90%;
   text-align: justify;
   margin-left: 10px;
+  font-size: 10px;
 }
 
 .more {
