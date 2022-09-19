@@ -13,24 +13,31 @@ const PostWrite = () => {
     window.location.href = '/login';
   }
   const [postTitle, setPostTitle] = useState('');
-  const [postContents, setPostContents] = React.useState('');
+  const [postContents, setPostContents] = useState('');
 
-  const changeContents = (e) => {
+  const onChangeTitle = (e) => {
+    setPostTitle(e.target.value);
+  };
+  const onChangeContent = (e) => {
     setPostContents(e.target.value);
   };
-
   useEffect(() => {
     axios
-      .get(`${API_END_POINT}/mypage`, {
-        headers: {
-          authorization: localStorage.getItem('login-token'),
+      .post(
+        `${API_END_POINT}/board`,
+        {
+          title: postTitle,
+          content: postContents,
         },
-      })
-      .then(function (res) {})
-      .catch(function (error) {
-        console.log(error);
-        alert('로그인을 먼저 해주세요.');
-        window.location.href = '/login';
+        {
+          headers: {
+            authorization: localStorage.getItem('login-token'),
+          },
+        }
+      )
+      .then((response) => {
+        setPostTitle(response.data.data);
+        setPostContents(response.data.user);
       });
   }, []);
 
@@ -48,11 +55,6 @@ const PostWrite = () => {
     setToggleBar(!toggleBar);
   };
   /**추가**/
-
-  //   let dateObj = new Date(posteach.postdate);
-  //   let timeString_KR = dateObj.toLocaleString('ko-KR', {
-  //     timeZone: 'Asia/Seoul',
-  //   });
 
   return (
     <div>
@@ -107,36 +109,28 @@ const PostWrite = () => {
       <>
         <h2 align="center">게시글 상세정보</h2>
 
-        {/* <div className="post-view-wrapper">
-          {posteach ? (
-            <>
-              <div className="post-view-row">
-                <label>제목</label>
-                <label>{posteach.title}</label>
-              </div>
-              <div className="post-view-row">
-                <label>작성자</label>
-                <label>{postuser}</label>
-              </div>
-              <div className="post-view-row">
-                <label>작성일</label>
-                <label>{timeString_KR}</label>
-              </div>
-              <div className="post-view-row">
-                <label>내용</label>
-                <div>{posteach.content}</div>
-              </div>
-            </>
-          ) : (
-            '해당 게시글을 찾을 수 없습니다.'
-          )}
-          <button
-            className="post-view-go-list-btn"
-            onClick={() => navigate(-1)}
-          >
-            목록으로 돌아가기
-          </button>
-        </div> */}
+        <div className="post-view-wrapper">
+          <>
+            <div className="post-view-row">
+              <label>제목</label>
+              <label>{postTitle}</label>
+            </div>
+            <div className="post-view-row">
+              <label>작성자</label>
+              <label>{}</label>
+            </div>
+            <div className="post-view-row">
+              <label>작성일</label>
+              <label>{}</label>
+            </div>
+            <div className="post-view-row">
+              <label>내용</label>
+              <div>{postContents}</div>
+            </div>
+          </>
+          : ( '해당 게시글을 찾을 수 없습니다.' )
+          <button className="post-view-go-list-btn">제출하기</button>
+        </div>
       </>
     </div>
   );

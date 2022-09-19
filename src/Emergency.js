@@ -52,7 +52,6 @@ const Emergency = () => {
             </button>
 
             <div className="menu_title">
-              {' '}
               <h2>응급 처치</h2>
             </div>
           </div>
