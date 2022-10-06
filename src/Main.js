@@ -332,7 +332,7 @@ const Main = () => {
 
             <div className="menu_title">
               {' '}
-              <h2>메뉴 타이틀</h2>
+              <h2>등산로 검색</h2>
             </div>
           </div>
         </header>
