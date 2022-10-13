@@ -362,7 +362,7 @@ const Main = () => {
               <Link to="/emergency">응급처치</Link>
             </Menu.Item>
             <Menu.Item>
-              <Link to="/Nearby">맛집 검색</Link>
+              <Link to="/Nearby">관광정보 검색</Link>
             </Menu.Item>
           </Menu>
         )}
