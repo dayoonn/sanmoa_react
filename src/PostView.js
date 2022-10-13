@@ -253,7 +253,6 @@ const PostView = () => {
             };
             return (
               <CommonTableRow key={index}>
-                <CommonTableColumn>{data.comment.id}</CommonTableColumn>
                 <CommonTableColumn>{data.commentUser.name}</CommonTableColumn>
                 <CommonTableColumn>{data.comment.content}</CommonTableColumn>
                 <CommonTableColumn>{timeString_KR}</CommonTableColumn>
