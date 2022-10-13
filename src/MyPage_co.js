@@ -182,7 +182,10 @@ const MyPage_co = () => {
             type="text"
             name="id"
           />
-          <div className="title"> 기존 비밀번호. 혹은 변경할 비밀번호 </div>
+          <div className="title">
+            {' '}
+            변경할 비밀번호(*변경하지 않을 시 기존pw){' '}
+          </div>
           <input
             id="co_pw"
             required
