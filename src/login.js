@@ -106,7 +106,7 @@ const Login = () => {
               <Link to="/emergency">응급처치</Link>
             </Menu.Item>
             <Menu.Item>
-              <Link to="/Nearby">맛집 검색</Link>
+              <Link to="/Nearby">관광정보 검색</Link>
             </Menu.Item>
           </Menu>
         )}
@@ -124,7 +124,7 @@ const Login = () => {
                 className="login_text"
                 type="text"
                 name="id"
-                placeholder="전화번호, 사용자 이름 또는 이메일"
+                placeholder="이메일 주소"
               />
               <input
                 id="LOGIN_PW"

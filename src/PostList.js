@@ -78,13 +78,13 @@ const PostList = (props) => {
               <Link to="/emergency">응급처치</Link>
             </Menu.Item>
             <Menu.Item>
-              <Link to="/Nearby">맛집 검색</Link>
+              <Link to="/Nearby">관광정보 검색</Link>
             </Menu.Item>
           </Menu>
         )}
       </div>
       <Link to="/postWrite">
-        <button align="right" className="voc-view-go-list-btn">
+        <button align="center" className="voc-view-go-list-btn">
           게시글 작성
         </button>
       </Link>
