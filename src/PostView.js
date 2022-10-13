@@ -5,6 +5,9 @@ import './css/style.css';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { BugOutlined, MenuFoldOutlined, MenuOutlined } from '@ant-design/icons';
 import { Button, Menu } from 'antd';
+import CommonTable from './table/CommonTable';
+import CommonTableColumn from './table/CommonTableColumn';
+import CommonTableRow from './table/CommonTableRow';
 
 const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -12,12 +15,15 @@ const PostView = () => {
   const { id } = useParams();
   const [posteach, setPostEach] = useState([]);
   const [postuser, setPostUser] = useState([]);
+  const [review, setReview] = useState('');
+  const [reviewArray, setReviewArray] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`${API_END_POINT}/board/${id}`).then((response) => {
       setPostEach(response.data.data);
       setPostUser(response.data.user);
+      setReviewArray(response.data.comment);
     });
   }, []);
 
@@ -70,6 +76,38 @@ const PostView = () => {
     timeZone: 'Asia/Seoul',
   });
 
+  const handleReviewInput = (event) => {
+    setReview(event.target.value);
+  };
+
+  const handleTotalEnter = (event) => {
+    if (!localStorage.getItem('login-token')) {
+      alert('회원정보가 없습니다.');
+      window.location.href = '/login';
+    }
+    if (event.key === 'Enter') {
+      axios
+        .post(
+          `${API_END_POINT}/comment`,
+          {
+            content: review,
+            postdatumId: id,
+          },
+          {
+            headers: {
+              authorization: localStorage.getItem('login-token'),
+            },
+          }
+        )
+        .then((response) => {
+          // event.preventDefault();
+          const repoArray = [...reviewArray];
+          setReviewArray(repoArray);
+          event.target.value = '';
+          window.location.href = `/postView/${id}`;
+        });
+    }
+  };
   return (
     <div>
       <nav>
@@ -162,6 +200,73 @@ const PostView = () => {
           </div>
         </div>
       </>
+      <div style={{ margin: '10px' }}>
+        <div align="center">
+          <input
+            className="review-input"
+            type="text"
+            placeholder="댓글을 입력해주세요."
+            onKeyPress={(event) => {
+              handleTotalEnter(event);
+            }}
+            onKeyUp={(event) => {
+              handleReviewInput(event);
+            }}
+          />
+        </div>
+      </div>
+
+      <CommonTable headersName={['댓글', '', '']}>
+        {reviewArray &&
+          reviewArray.map((data, index) => {
+            let dateObj = new Date(data.comment.commendate);
+            let timeString_KR = dateObj.toLocaleString('ko-KR', {
+              timeZone: 'Asia/Seoul',
+            });
+            const onCommentDelete = (e) => {
+              if (!localStorage.getItem('login-token')) {
+                alert('회원정보가 없습니다.');
+                window.location.href = '/login';
+              }
+              e.preventDefault();
+              axios
+                .delete(`${API_END_POINT}/comment/${data.comment.id}`, {
+                  headers: {
+                    authorization: localStorage.getItem('login-token'),
+                  },
+                })
+                .then(function (res) {
+                  if (res) {
+                    if (res.data.error) {
+                      alert(res.data.error);
+                    }
+                    if (res.data.data) {
+                      alert(res.data.data);
+                      window.location.href = `/postView/${id}`;
+                    }
+                  }
+                })
+                .catch(function (error) {
+                  console.log(error);
+                  alert('작성 도중에 오류가 발생하였습니다.');
+                });
+            };
+            return (
+              <CommonTableRow key={index}>
+                <CommonTableColumn>{data.comment.id}</CommonTableColumn>
+                <CommonTableColumn>{data.commentUser.name}</CommonTableColumn>
+                <CommonTableColumn>{data.comment.content}</CommonTableColumn>
+                <CommonTableColumn>{timeString_KR}</CommonTableColumn>
+                <button
+                  className="post-view-go-list-btn"
+                  onClick={onCommentDelete}
+                >
+                  삭제
+                </button>
+              </CommonTableRow>
+            );
+          })}
+      </CommonTable>
     </div>
   );
 };
