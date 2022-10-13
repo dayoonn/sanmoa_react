@@ -8,7 +8,6 @@ import { Menu, Button } from 'antd';
 const API_END_POINT = process.env.REACT_APP_API_ENDPOINT;
 
 const MyPage = () => {
-  const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -24,7 +23,6 @@ const MyPage = () => {
         },
       })
       .then(function (res) {
-        setName(res.data.userInfo.name);
         setAge(res.data.userInfo.age);
         setEmail(res.data.userInfo.email);
         setPhone(res.data.userInfo.phone);
@@ -111,7 +109,6 @@ const MyPage = () => {
       <div id="main_box_mypage">
         <div className="my_div">
           <div className="title"> 내 정보</div>
-          <div id="my_name">이름 : {name}</div>
           <div id="my_mail">email : {email}</div>
           <div id="my_age">나이 : {age}</div>
           <div id="my_phone">연락처 : {phone}</div>
