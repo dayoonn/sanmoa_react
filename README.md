@@ -11,7 +11,7 @@
 ## 기술 스택
 
 **프론트엔드**:
-<p align="center">
+<p>
   <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
   <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
   <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
@@ -19,21 +19,26 @@
 </p>
 
 **백엔드**:
+<p>
   <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=node.js&logoColor=white">
-
+</p>
 
 **서버 관리**:
-
+<p>
   <img src="https://img.shields.io/badge/Amazon AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white"/>
-
+</p>
 
 **데이터베이스**:
+<p>
   <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+</p>
 
 **기타 기술**:
+<p>
   <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
   <img src="https://img.shields.io/badge/kakaomap-FFCD00?style=for-the-badge&logo=kakaomap&logoColor=white">
   <img src="https://img.shields.io/badge/gps-8B0000?style=for-the-badge&logo=gps&logoColor=white">
+</p>
 
 ## 프로젝트 기간
 
